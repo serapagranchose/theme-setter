@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# convert 1_3:2.gif -gravity center -crop 500x500+0+0 1_3:2_CROPPED.gif
+
+# Line to 
+trap "exit" INT
+
+# To exit script if already launch
+# It prevent multiple instance of gif wallpapers
+if [[ "$1" != "-n" ]]; then
+    nohup "$0" </dev/null >/dev/null 2>&1 -n &
+    exit $?
+fi
+
+# To kill multiple instance of scripts
+ps aux | grep -ie random_wallpaper | awk '{print $2}' | head -n -2 | xargs kill -9
+ps aux | grep -ie paperview | awk '{print $2}' | head -n -2 | xargs kill -9
+
+number=$(ls ~/Pictures/Wallpaper/ | shuf -n 1)
+wal -i ~/Pictures/Wallpaper/$number/${number}_3:2.gif
+paperview ~/Pictures/Wallpaper/$number/${number}_3:2bmp 5
