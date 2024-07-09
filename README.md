@@ -1,4 +1,11 @@
-# wallpaper_setter
+<div align="center">
+  <a href="https://github.com/serapagranchose/theme-setter">
+    <img src="assets/images/thumbnail.png" alt="thumbnail" width="750">
+  </a>
+
+  <h1>Wallpaper Setter</h1>
+  <p>A script to randomly set an animated wallpaper and set my color theme.</p>
+</div>
 
 ## Applying the theme to new terminals
 
